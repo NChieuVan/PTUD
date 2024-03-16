@@ -1,16 +1,21 @@
 
 package gui.login;
 
+import dao.login.Login_Dao;
+import gui.main.Main;
+import model.TaiKhoan;
+
 /**
  *
  * @author ME1
  */
 public class Login extends javax.swing.JFrame {
-
-    /**
+    private Login_Dao login_Dao;
+	/**
      * Creates new form login
      */
     public Login() {
+    	login_Dao =new Login_Dao();
         initComponents();
         txtusername.setBackground(new java.awt.Color(0,0,0,1));
         txtpassword.setBackground(new java.awt.Color(0,0,0,1));
@@ -97,7 +102,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(199, 226, 255));
         jLabel5.setText("Username");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 123, 341, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 123, 80, -1));
 
         txtusername.setFont(txtusername.getFont().deriveFont(txtusername.getFont().getSize()+2f));
         txtusername.setForeground(new java.awt.Color(255, 255, 255));
@@ -149,8 +154,13 @@ public class Login extends javax.swing.JFrame {
 
         jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jCheckBox1.setForeground(new java.awt.Color(199, 226, 255));
-        jCheckBox1.setText("Remember Password");
-        jPanel2.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 261, -1, -1));
+        jCheckBox1.setText("Admin");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 263, -1, 20));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(199, 226, 255));
@@ -241,10 +251,36 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         Object e=  evt.getSource();
         if(e.equals(jButton1))
-        {
-            System.exit(0);
+        { 
+        	TaiKhoan tk = login_Dao.getTaiKhoan(txtusername.getText(), txtpassword.getText());
+        	if(txtusername.getText().equals("")||txtpassword.getText().equals(""))
+        	{
+        		System.out.println("Chua nhap tk or mk");
+        	}
+        	else if(tk==null)
+            {
+            	System.out.println("Sai tk or mk");
+            }
+            else if(tk!=null && jCheckBox1.isSelected()== true && tk.getVaiTro().equals("QuanLy"))
+            {
+//            	System.out.println("Yes ql");
+            	Main main = new Main();
+                main.setVisible(true);
+            	Login.this.dispose();
+            }
+            else if(tk!=null && jCheckBox1.isSelected()== false && tk.getVaiTro().equals("NhanVien"))
+            {
+//            	System.out.println("Yes NV");
+                Main main = new Main();
+                main.setVisible(true);
+            	Login.this.dispose();
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**
      * @param args the command line arguments

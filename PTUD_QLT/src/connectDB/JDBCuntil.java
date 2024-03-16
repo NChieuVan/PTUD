@@ -23,14 +23,5 @@ public class JDBCuntil {
 		}
 		return c;
 }
-//	public static void closeConnection(Connection c) {
-//		try {
-//			if (c!=null) {
-//				c.close();
-//			}
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		}
-//	}
+
 }
