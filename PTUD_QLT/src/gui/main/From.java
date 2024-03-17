@@ -13,9 +13,9 @@ public class From extends javax.swing.JPanel {
     /**
      * Creates new form From
      */
-    public From(String name) {
+    public From() {
         initComponents();
-        lb.setText(name);
+        lb.setText("Hahaha");
     }
 
     /**

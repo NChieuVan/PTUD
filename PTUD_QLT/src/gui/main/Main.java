@@ -4,8 +4,10 @@
  */
 package gui.main;
 
+import gui.login.Login;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.PopupMenu;
 import javaswingdev.GradientDropdownMenu;
 import javaswingdev.MenuEvent;
 import javax.swing.JOptionPane;
@@ -22,45 +24,54 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         GradientDropdownMenu menu = new GradientDropdownMenu();
-        menu.setGradientColor(Color.GRAY, Color.LIGHT_GRAY);
-        menu.setBackground(Color.DARK_GRAY);
-//        menu.setHeaderGradient(false);
-        Color color = Color.BLUE;
-//        String home = "Home";
-        
-        menu.addItem("<html><font color='red'>Trang Chủ</font></html>");
-        menu.addItem("<html><font color='red' size ='5' >Thuốc</font></html>","Ticket New","Featured Styles","Content blocks");
-        menu.addItem("Hóa Đơn","Ticket New","Featured Styles","Content blocks");
-        menu.addItem("Nhân Viên","Thông Tin Nhân Viên","Featured Styles","Content blocks");
-        menu.addItem("Khách Hàng","Ticket New","Featured Styles","Content blocks");
-        menu.addItem("Thống Kê","Ticket New","Featured Styles","Content blocks");
-        menu.addItem("Nhà Cung Cấp","Ticket New","Featured Styles","Content blocks");
-        
+        menu.setGradientColor(Color.decode("#2193b0"), Color.decode("#6dd5ed"));
+        menu.setBackground(Color.decode("#2980B9"));
+
+        menu.addItem("Trang Chủ", "Trang chủ", "Tài khoản", "Đăng xuất");
+        menu.addItem("Thuốc", "Danh sách thuốc", "Quản lý thuốc");
+        menu.addItem("Hóa Đơn", "Danh sách hóa đơn", "DS phiếu nhập thuốc", "Ds Phiếu đặt thuốc", "Ds thuốc toa thuốc");
+        menu.addItem("Nhân Viên", "Danh sách nhân viên");
+        menu.addItem("Khách Hàng", "Danh sách khách hàng");
+        menu.addItem("Thống Kê", "Thống kê hóa đơn", "Thống kê thuốc", "Thống kê nhân viên", "Thống kê khách hàng", "Thống kê nhà cung cấp");
+        menu.addItem("Nhà Cung Cấp", "Danh sách nhà cung cấp");
+
         menu.applay(this);
-        
+        setLocationRelativeTo(null);
+
+        /**
+         * Sự kiện cho từng trang màng hình
+         */
         menu.addEvent(new MenuEvent() {
             @Override
             public void selected(int index, int subIndex, boolean menuItem) {
 //                throw new UnsupportedOperationException("Not supported yet."); 
-                if(menuItem){
-//                    JOptionPane.showMessageDialog(null,menu.getMenuNameAt(index,subIndex ).trim() );
-                    String formMenu = menu.getMenuNameAt(index,subIndex ).trim();
-                    if(formMenu.equalsIgnoreCase("Ticket New"))
-                      showForm(new From(menu.getMenuNameAt(index,subIndex ).trim()));
-                    
-                    if(formMenu.equalsIgnoreCase("Thông Tin Nhân Viên"))
-                      showForm(new Form_NhanVien(menu.getMenuNameAt(index,subIndex ).trim()));
+                if (menuItem) {
+                    String formMenu = menu.getMenuNameAt(index, subIndex).trim();
+//                    Trang chủ
+                    if (formMenu.equalsIgnoreCase("Đăng xuất")) {
+                        Login login = new Login();
+                        login.setVisible(true);
+                        Main.this.dispose();
+                    }
+                    if(formMenu.equalsIgnoreCase("Trang chủ")){
+                        showForm(new FormHome());
+                    }
+                    if (formMenu.equalsIgnoreCase("Danh sách nhân viên")) {  
+                        showForm(new Form_NhanVien());
+                    }
                 }
-            }});
-        
+            }
+        });
+
     }
-    
-    private void  showForm(Component com){
-        main.removeAll();
-        main.add(com);
-        main.repaint();
-        main.revalidate();
+
+    private void showForm(Component com) {
+        Form_Home.removeAll();
+        Form_Home.add(com);
+        Form_Home.repaint();
+        Form_Home.revalidate();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,27 +81,41 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        main = new javax.swing.JPanel();
+        Form_Home = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        From_Menu_Thua = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(255, 204, 204));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        main.setBackground(new java.awt.Color(255, 255, 255));
-        main.setLayout(new java.awt.BorderLayout());
+        Form_Home.setBackground(new java.awt.Color(255, 255, 204));
+        Form_Home.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 1076, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        jLabel1.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Hello menu");
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        Form_Home.add(jLabel1, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(Form_Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1160, 620));
+
+        From_Menu_Thua.setBackground(new java.awt.Color(153, 153, 255));
+
+        javax.swing.GroupLayout From_Menu_ThuaLayout = new javax.swing.GroupLayout(From_Menu_Thua);
+        From_Menu_Thua.setLayout(From_Menu_ThuaLayout);
+        From_Menu_ThuaLayout.setHorizontalGroup(
+            From_Menu_ThuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1160, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        From_Menu_ThuaLayout.setVerticalGroup(
+            From_Menu_ThuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
         );
+
+        getContentPane().add(From_Menu_Thua, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 50));
 
         pack();
         setLocationRelativeTo(null);
@@ -132,6 +157,8 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel main;
+    private javax.swing.JPanel Form_Home;
+    private javax.swing.JPanel From_Menu_Thua;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

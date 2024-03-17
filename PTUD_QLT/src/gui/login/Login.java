@@ -1,4 +1,3 @@
-
 package gui.login;
 
 import dao.login.Login_Dao;
@@ -10,15 +9,17 @@ import model.TaiKhoan;
  * @author ME1
  */
 public class Login extends javax.swing.JFrame {
+
     private Login_Dao login_Dao;
-	/**
+
+    /**
      * Creates new form login
      */
     public Login() {
-    	login_Dao =new Login_Dao();
+        login_Dao = new Login_Dao();
         initComponents();
-        txtusername.setBackground(new java.awt.Color(0,0,0,1));
-        txtpassword.setBackground(new java.awt.Color(0,0,0,1));
+        txtusername.setBackground(new java.awt.Color(0, 0, 0, 1));
+        txtpassword.setBackground(new java.awt.Color(0, 0, 0, 1));
     }
 
     /**
@@ -48,9 +49,8 @@ public class Login extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel11 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        lbInfo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -160,14 +160,14 @@ public class Login extends javax.swing.JFrame {
                 jCheckBox1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 263, -1, 20));
+        jPanel2.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, 20));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(199, 226, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Forget Password?");
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 261, 121, 27));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 121, 27));
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(25, 118, 211));
@@ -183,29 +183,21 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 306, 341, 40));
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Sign Up");
-        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 357, 122, -1));
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(199, 226, 255));
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel14.setText("Don't have an account?");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 357, 213, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 341, 40));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 102, 102));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Quản Lí Thuốc Tây ");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 350, 60));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 330, 60));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 440));
+        lbInfo.setFont(new java.awt.Font("Segoe UI", 2, 13)); // NOI18N
+        lbInfo.setForeground(new java.awt.Color(255, 51, 0));
+        jPanel2.add(lbInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 246, 240, 20));
 
-        setSize(new java.awt.Dimension(419, 415));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 400));
+
+        setSize(new java.awt.Dimension(419, 378));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -214,7 +206,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void disableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_disableMouseClicked
-        txtpassword.setEchoChar((char)0);
+        txtpassword.setEchoChar((char) 0);
         disable.setVisible(false);
         disable.setEnabled(false);
         show.setEnabled(true);
@@ -222,23 +214,23 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_disableMouseClicked
 
     private void showMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showMouseClicked
-        txtpassword.setEchoChar((char)8226);
+        txtpassword.setEchoChar((char) 8226);
         disable.setVisible(true);
         disable.setEnabled(true);
         show.setEnabled(false);
         show.setEnabled(false);
-        
+
     }//GEN-LAST:event_showMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        for (double i = 0.0; i <=1.0; i = i+0.1){
-            String val = i+ "";
+        for (double i = 0.0; i <= 1.0; i = i + 0.1) {
+            String val = i + "";
             float f = Float.parseFloat(val);
             this.setOpacity(f);
-            try{
+            try {
                 Thread.sleep(50);
-            }catch(InterruptedException e){
-                
+            } catch (InterruptedException e) {
+
             }
         }
     }//GEN-LAST:event_formWindowOpened
@@ -249,31 +241,35 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Object e=  evt.getSource();
-        if(e.equals(jButton1))
-        { 
-        	TaiKhoan tk = login_Dao.getTaiKhoan(txtusername.getText(), txtpassword.getText());
-        	if(txtusername.getText().equals("")||txtpassword.getText().equals(""))
-        	{
-        		System.out.println("Chua nhap tk or mk");
-        	}
-        	else if(tk==null)
-            {
-            	System.out.println("Sai tk or mk");
-            }
-            else if(tk!=null && jCheckBox1.isSelected()== true && tk.getVaiTro().equals("QuanLy"))
-            {
+        Object e = evt.getSource();
+        if (e.equals(jButton1)) {
+            TaiKhoan tk = login_Dao.getTaiKhoan(txtusername.getText(), txtpassword.getText());
+            if (txtusername.getText().equals("") || txtpassword.getText().equals("")) {
+//                    lbInfo.setText("");
+                lbInfo.setText("Chưa nhập userName hoặc passWord!");
+                txtusername.requestFocus();
+                txtusername.selectAll();
+            } else if (tk == null) {
+                lbInfo.setText("Sai userName hoặc passWord!");
+                txtusername.requestFocus();
+                txtusername.selectAll();
+            } else if (jCheckBox1.isSelected() == false && tk.getVaiTro().equals("QuanLy")) {
 //            	System.out.println("Yes ql");
-            	Main main = new Main();
+                lbInfo.setText("Sai userName hoặc passWord!");
+            } else if (jCheckBox1.isSelected() == true && tk.getVaiTro().equals("QuanLy")) {
+//            	System.out.println("Yes ql");
+                lbInfo.setText("");
+                Main main = new Main();
                 main.setVisible(true);
-            	Login.this.dispose();
-            }
-            else if(tk!=null && jCheckBox1.isSelected()== false && tk.getVaiTro().equals("NhanVien"))
-            {
+                Login.this.dispose();
+            } else if (jCheckBox1.isSelected() == true && tk.getVaiTro().equals("NhanVien")) {
+//            	System.out.println("Yes ql");
+                lbInfo.setText("Sai userName hoặc passWord!");
+            } else if (jCheckBox1.isSelected() == false && tk.getVaiTro().equals("NhanVien")) {
 //            	System.out.println("Yes NV");
                 Main main = new Main();
                 main.setVisible(true);
-            	Login.this.dispose();
+                Login.this.dispose();
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -286,7 +282,7 @@ public class Login extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    	/* Set the Nimbus look and feel */
+        /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -311,14 +307,12 @@ public class Login extends javax.swing.JFrame {
 
         /* Create and display the form */
         //hello
-        
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               new Login().setVisible(true);
+                new Login().setVisible(true);
             }
-        });   
-	}
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel disable;
@@ -327,8 +321,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -339,10 +331,10 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lbInfo;
     private javax.swing.JLabel show;
     private javax.swing.JPasswordField txtpassword;
     private javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables
-    
-   
+
 }
