@@ -64,7 +64,7 @@ public class Main extends javax.swing.JFrame {
         });
 
     }
-
+    
     private void showForm(Component com) {
         Form_Home.removeAll();
         Form_Home.add(com);
