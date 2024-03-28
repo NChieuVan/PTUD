@@ -34,7 +34,7 @@ public class Main extends javax.swing.JFrame {
         menu.addItem("Khách Hàng", "Danh sách khách hàng");
         menu.addItem("Thống Kê", "Thống kê hóa đơn", "Thống kê thuốc", "Thống kê nhân viên", "Thống kê khách hàng", "Thống kê nhà cung cấp");
         menu.addItem("Nhà Cung Cấp", "Danh sách nhà cung cấp");
-
+        showForm(new FormHome());
         menu.applay(this);
         setLocationRelativeTo(null);
 
@@ -58,6 +58,12 @@ public class Main extends javax.swing.JFrame {
                     }
                     if (formMenu.equalsIgnoreCase("Danh sách nhân viên")) {  
                         showForm(new Form_NhanVien());
+                    }
+                    if(formMenu.equalsIgnoreCase("Quản lý thuốc")){
+                        showForm(new FormQLThuoc());
+                    }
+                    if(formMenu.equalsIgnoreCase("Danh sách nhà cung cấp")){
+                        showForm(new Form_NhaCungCap());
                     }
                 }
             }

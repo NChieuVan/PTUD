@@ -4,6 +4,9 @@
  */
 package gui.main;
 
+import javax.swing.ImageIcon;
+import model.Model_Card;
+
 /**
  *
  * @author DELL
@@ -15,7 +18,24 @@ public class FormHome extends javax.swing.JPanel {
      */
     public FormHome() {
         initComponents();
-//        setLocation(0, 50);
+        card1.setData(new Model_Card(new ImageIcon(getClass().getResource("/icon/stock.png")),"Stock Total","$20000","Increased by 60%"));
+        card2.setData(new Model_Card(new ImageIcon(getClass().getResource("/icon/profit.png")),"Total profit","$15000","Increased by 30%"));
+        card3.setData(new Model_Card(new ImageIcon(getClass().getResource("/icon/flag.png")),"Unique Visitors","$35000","Increased by 80%"));
+        
+        table.addRow(new Object[]{"Mike Bhand", "mikebhand@gmail.com", "Admin", "25 Apr,2018", "null"});
+        table.addRow(new Object[]{"Andrew Strauss", "andrewstrauss@gmail.com", "Editor", "25 Apr,2018", "null"});
+        table.addRow(new Object[]{"Ross Kopelman", "rosskopelman@gmail.com", "Subscriber", "25 Apr,2018", "null"});
+        table.addRow(new Object[]{"Mike Hussy", "mikehussy@gmail.com", "Admin", "25 Apr,2018", "null"});
+        table.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018", "null"});
+        table.addRow(new Object[]{"Andrew Strauss", "andrewstrauss@gmail.com", "Editor", "25 Apr,2018", "null"});
+        table.addRow(new Object[]{"Ross Kopelman", "rosskopelman@gmail.com", "Subscriber", "25 Apr,2018", "null"});
+        table.addRow(new Object[]{"Mike Hussy", "mikehussy@gmail.com", "Admin", "25 Apr,2018", "null"});
+        table.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018", "null"});
+        table.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018", "null"});
+        table.addRow(new Object[]{"Andrew Strauss", "andrewstrauss@gmail.com", "Editor", "25 Apr,2018", "null"});
+        table.addRow(new Object[]{"Ross Kopelman", "rosskopelman@gmail.com", "Subscriber", "25 Apr,2018", "null"});
+        table.addRow(new Object[]{"Mike Hussy", "mikehussy@gmail.com", "Admin", "25 Apr,2018", "null"});
+        table.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018", "null"});
     }
 
     /**
@@ -27,11 +47,100 @@ public class FormHome extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(204, 255, 255));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnTitle = new javax.swing.JLayeredPane();
+        card1 = new gui.component.Card();
+        card2 = new gui.component.Card();
+        card3 = new gui.component.Card();
+        pnTable = new gui.main.PanelBoder();
+        lbTable = new javax.swing.JLabel();
+        jScrollPane1 = new function.scroll.ScrollPaneWin11();
+        table = new swing.Table();
+
+        setBackground(new java.awt.Color(204, 204, 204));
+
+        pnTitle.setLayout(new java.awt.GridLayout(1, 3, 30, 0));
+
+        card1.setColor1(new java.awt.Color(142, 142, 250));
+        card1.setColor2(new java.awt.Color(123, 123, 245));
+        pnTitle.add(card1);
+
+        card2.setColor1(new java.awt.Color(186, 123, 247));
+        card2.setColor2(new java.awt.Color(167, 94, 236));
+        pnTitle.add(card2);
+
+        card3.setColor1(new java.awt.Color(241, 208, 62));
+        card3.setColor2(new java.awt.Color(211, 184, 61));
+        pnTitle.add(card3);
+
+        pnTable.setBackground(new java.awt.Color(255, 255, 255));
+
+        lbTable.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbTable.setForeground(new java.awt.Color(117, 109, 109));
+        lbTable.setText("Table Desinger");
+
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+            }
+        ));
+        jScrollPane1.setViewportView(table);
+
+        javax.swing.GroupLayout pnTableLayout = new javax.swing.GroupLayout(pnTable);
+        pnTable.setLayout(pnTableLayout);
+        pnTableLayout.setHorizontalGroup(
+            pnTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnTableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(pnTableLayout.createSequentialGroup()
+                        .addComponent(lbTable)
+                        .addContainerGap(993, Short.MAX_VALUE))))
+        );
+        pnTableLayout.setVerticalGroup(
+            pnTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnTableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbTable)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 1126, Short.MAX_VALUE)
+                    .addComponent(pnTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private gui.component.Card card1;
+    private gui.component.Card card2;
+    private gui.component.Card card3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbTable;
+    private gui.main.PanelBoder pnTable;
+    private javax.swing.JLayeredPane pnTitle;
+    private swing.Table table;
     // End of variables declaration//GEN-END:variables
 }

@@ -74,12 +74,14 @@ public class ScrollBarWin11UI extends BasicScrollBarUI {
         };
     }
 
+
+
     @Override
     public void installUI(JComponent c) {
         super.installUI(c);
         c.setPreferredSize(new Dimension(scrollSize, scrollSize));
         c.addMouseListener(mouseEvent);
-        c.setForeground(new Color(150, 150, 150));
+        c.setForeground(new Color(123, 123, 245));
         initAnimator();
     }
 
